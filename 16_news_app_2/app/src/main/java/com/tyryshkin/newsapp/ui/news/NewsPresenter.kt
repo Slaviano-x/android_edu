@@ -1,23 +1,21 @@
 package com.tyryshkin.newsapp.ui.news
 
-import android.util.Log
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import com.tyryshkin.newsapp.data.network.NewsRemoteMediator
 import com.tyryshkin.newsapp.data.network.ApiUtilities
 import com.tyryshkin.newsapp.data.network.NewsPagingSource
-import com.tyryshkin.newsapp.data.room.NewsDao
 import com.tyryshkin.newsapp.data.room.NewsDatabase
 import com.tyryshkin.newsapp.models.entities.News
-import kotlinx.coroutines.flow.Flow
 
 @ExperimentalPagingApi
 class NewsPresenter(
-    private val newsDatabase: NewsDatabase,
-    private var newsView: NewsView,
-    private val navigator: Navigator
+    newsDatabase: NewsDatabase,
+    private var newsInterface: NewsInterface,
+    private val navigator: Navigator,
+    private val connectivityManager: ConnectivityManager
 ) {
     private val newsDao = newsDatabase.getNewsDao()
 
@@ -28,23 +26,32 @@ class NewsPresenter(
     }
 
     val flow = Pager(
-        PagingConfig(20, 5),
-        remoteMediator = NewsRemoteMediator(newsDao, ApiUtilities.getNewsApiService())
+        PagingConfig(20, 5)
+        //remoteMediator = NewsRemoteMediator(newsDao, ApiUtilities.getNewsApiService())
     ) {
-        newsDao.getNews()
-        //newsPagingSource.create()
+        //newsDao.getNews()
+        newsPagingSource.create()
     }.flow
 
     fun updateNews() {
-        Log.d("myError", "1")
-        newsView.showNews()
-        //newsView.showLoading(false)
+        newsInterface.showNews()
+        newsInterface.showLoading(false)
     }
-    /*fun onRefreshAction() {
+    fun onRefreshAction() {
         updateNews()
-    }*/
+    }
 
     fun onNewsClicked(news: News) {
-        //navigator.navigateToPage(news.url)
+        navigator.navigateToPage(news.url)
+    }
+    fun isOnline(): Boolean {
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            else -> false
+        }
     }
 }

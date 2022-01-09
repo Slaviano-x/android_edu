@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="5dp"
-            android:text="Интернет-соединение недоступно!"
+            android:text="@string/error_internet_1"
             android:textColor="@color/error"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -44,7 +44,7 @@
             android:layout_marginBottom="6dp"
             android:backgroundTint="@color/purple_500"
             android:textColor="@color/white"
-            android:text="Повторить"/>
+            android:text="@string/retry_1"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">News App</string>
+    <string name="retry_1">Повторить</string>
+    <string name="retry_2">Повтори, Наташа</string>
+    <string name="error">Ошибка</string>
+    <string name="error_link">Ссылку потеряли, Наташа</string>
+    <string name="error_internet_1">Интернет-соединение недоступно!</string>
+    <string name="error_internet_2">Интернету кирдык, Наташа</string>
+    <string name="error_link_2">Ссылку потеряли, Наташа</string>
+    <string name="wake_up">Вставай, мы там всё уронили</string>
+    <string name="sleep">Наташ, ты спишь?</string>
+    <string name="error_cat_1">error_cat_1</string>
+    <string name="error_cat_2">error_cat_2</string>
+    <string name="error_cat_3">error_cat_3</string>
+    <string name="error_cat_4">error_cat_4</string>
+    <string name="imageview">ImageView</string>
+    <string name="title">Текст заголовка Текст заголовка Текст заголовка Текст заголовка Текст заголовка</string>
+    <string name="description">Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания</string>
+    <string name="published_at">Published At</string>
 </resources>

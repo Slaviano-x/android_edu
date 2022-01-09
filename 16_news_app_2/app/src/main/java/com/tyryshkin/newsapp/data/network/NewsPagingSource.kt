@@ -24,9 +24,6 @@ class NewsPagingSource(
 
     @RequiresApi(Build.VERSION_CODES.N)
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int,  News> {
-        /*if (QueryForTaskUtil.QUERY.isBlank()) {
-            return LoadResult.Page(emptyList(), prevKey = null, nextKey = null)
-        }*/
 
         try {
             val pageNumber = params.key ?: 1

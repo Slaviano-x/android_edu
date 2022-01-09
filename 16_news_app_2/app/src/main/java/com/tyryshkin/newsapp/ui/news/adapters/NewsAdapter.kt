@@ -46,7 +46,11 @@ class NewsAdapter (private val listener: OnNewsClickListener) :
             descriptionTextView.text = news.description
             val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
             val formatter = SimpleDateFormat("dd.MM.yyyy")
-            dataPublishedAtTextView.text = formatter.format(parser.parse(news.dataPublishedAt))
+            try {
+                dataPublishedAtTextView.text = formatter.format(parser.parse(news.dataPublishedAt))
+            } catch (e: NullPointerException) {
+                dataPublishedAtTextView.text = ""
+            }
         }
     }
 

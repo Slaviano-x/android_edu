@@ -1,5 +1,5 @@
 package com.tyryshkin.newsapp.ui.news
 
 interface Navigator {
-    //fun navigateToPage(url: String?)
+    fun navigateToPage(url: String?)
 }

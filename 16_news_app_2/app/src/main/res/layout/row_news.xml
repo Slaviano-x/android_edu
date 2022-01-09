@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="@string/imageview" />
 
         <TextView
             android:id="@+id/titleTextView"
@@ -31,7 +32,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:layout_marginHorizontal="5dp"
-            android:text="Текст заголовка Текст заголовка Текст заголовка Текст заголовка Текст заголовка"
+            android:text="@string/title"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -43,7 +44,7 @@
             android:ellipsize="end"
             android:maxLines="5"
             android:padding="5dp"
-            android:text="Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания Текст описания"
+            android:text="@string/description"
             android:textSize="15sp" />
 
         <TextView
@@ -52,7 +53,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Published At"
+            android:text="@string/published_at"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
